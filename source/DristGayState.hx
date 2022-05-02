@@ -42,14 +42,14 @@ class DristGayState extends MusicBeatState
     }
 
     override function update(elapsed:Float) {
-        if(Control.ACCEPT) {
+        if(controls.ACCEPT) {
             bg.visible = false;
             FlxG.camera.flash(FlxColor.WHITE, 1);
             accept.visible = true;
 	    new FlxTimer().start(0.8, function(dristTimer:FlxTimer)
              MusicBeatState.switchState(new MainMenuState()));
             }
-         if(Control.BACK)
+         if(controls.BACK)
            {
             flash.system.System.exit(0);
            }
