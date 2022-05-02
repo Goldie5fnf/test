@@ -46,7 +46,7 @@ class DristGayState extends MusicBeatState
             FlxG.sound.play(Paths.sound('pomilsya'), 0.7);
             FlxG.camera.flash(FlxColor.WHITE, 1);
             bg.visible = false;
-            accept.visible = false;
+            accept.visible = true;
 	    new FlxTimer().start(5, function(dristTimer:FlxTimer)
              MusicBeatState.switchState(new MainMenuState()));
             }
