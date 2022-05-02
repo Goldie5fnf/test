@@ -23,11 +23,13 @@ class DristGayState extends MusicBeatState
 
         bg = new FlxSprite().loadGraphic(Paths.image('dristgayover'));
         bg.screenCenter();
+        bg.setGraphicSize(Std.int(bg.width * 0.8));
         bg.visible = true;
         add(bg);
 
         accept = new FlxSprite().loadGraphic(Paths.image('dristaccept'));
         accept.visible = false;
+        accept.setGraphicSize(Std.int(accept.width * 0.8));
         accept.screenCenter();
         add(accept);
       
