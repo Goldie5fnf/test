@@ -53,6 +53,6 @@ class DristGayState extends MusicBeatState
            {
             flash.system.System.exit(0);
            }
+          super.update(elapsed);
       }
-        super.update(elapsed);
 }
