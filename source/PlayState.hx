@@ -2658,9 +2658,9 @@ class PlayState extends MusicBeatState
 				for (timer in modchartTimers) {
 					timer.active = true;
 				}
-		
-				MusicBeatState.switchState(new DristGayState());				
+						
 				FlxTransitionableState.skipNextTransIn = true;
+                                MusicBeatState.switchState(new DristGayState());
 
 
 				// MusicBeatState.switchState(new GameOverState(boyfriend.getScreenPosition().x, boyfriend.getScreenPosition().y));
