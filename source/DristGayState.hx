@@ -30,6 +30,15 @@ class DristGayState extends MusicBeatState
         accept.visible = false;
         accept.screenCenter = true;
         add(accept);
+      
+      #if android
+
+       addVirtualPad(NONE, A_B);
+
+       addPadCamera();
+
+       #end
+
     }
 
     override function update(elapsed:Float) {
