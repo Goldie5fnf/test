@@ -28,7 +28,7 @@ class DristGayState extends MusicBeatState
 
         accept = new FlxSprite().loadGraphic(Paths.image('dristaccept'));
         accept.visible = false;
-        accept.screenCenter = true;
+        accept.screenCenter();
         add(accept);
       
       #if android
@@ -47,12 +47,12 @@ class DristGayState extends MusicBeatState
             FlxG.camera.flash(FlxColor.WHITE, 1);
             accept.visible = true;
 	    new FlxTimer().start(0.8, function(dristTimer:FlxTimer)
-             MusicBeatState.switchState(new MainMenuState());
-            });
+             MusicBeatState.switchState(new MainMenuState()));
+            }
          if(controls.back)
            {
             flash.system.System.exit(0);
            }
-        super.update(elapsed);
       }
+        super.update(elapsed);
 }
