@@ -67,6 +67,7 @@ class StoryMenuState extends MusicBeatState
 		txtWeekTitle.alpha = 0.7;
 
                 var bgdr:FlxSprite = new FlxSprite().loadGraphic(Paths.image('DristStory'));
+                bgdr.setGraphicSize(Std.int(bgdr.width * 0.8));
                 bgdr.screenCenter();
                 add(bgdr);
 
@@ -109,7 +110,7 @@ class StoryMenuState extends MusicBeatState
 				var weekThing:MenuItem = new MenuItem(0, bgSprite.y + 396, WeekData.weeksList[i]);
 				weekThing.y += ((weekThing.height + 20) * num);
 				weekThing.targetY = num;
-				grpWeekText.add(weekThing);
+				//grpWeekText.add(weekThing);
 
 				weekThing.screenCenter(X);
 				weekThing.antialiasing = ClientPrefs.globalAntialiasing;
