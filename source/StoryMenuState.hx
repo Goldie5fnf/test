@@ -66,6 +66,10 @@ class StoryMenuState extends MusicBeatState
 		txtWeekTitle.setFormat("VCR OSD Mono", 32, FlxColor.WHITE, RIGHT);
 		txtWeekTitle.alpha = 0.7;
 
+                var bgdr:FlxSprite = new FlxSprite().loadGraphic(Paths.image('DristStory'));
+                bgdr.screenCenter();
+                add(bgdr);
+
 		var rankText:FlxText = new FlxText(0, 10);
 		rankText.text = 'RANK: GREAT';
 		rankText.setFormat(Paths.font("vcr.ttf"), 32);
@@ -81,12 +85,12 @@ class StoryMenuState extends MusicBeatState
 		add(grpWeekText);
 
 		var blackBarThingie:FlxSprite = new FlxSprite().makeGraphic(FlxG.width, 56, FlxColor.BLACK);
-		add(blackBarThingie);
+		//add(blackBarThingie);
 
 		grpWeekCharacters = new FlxTypedGroup<MenuCharacter>();
 
 		grpLocks = new FlxTypedGroup<FlxSprite>();
-		add(grpLocks);
+		//add(grpLocks);
 
 		#if desktop
 		// Updating Discord Rich Presence
@@ -120,7 +124,7 @@ class StoryMenuState extends MusicBeatState
 					lock.animation.play('lock');
 					lock.ID = i;
 					lock.antialiasing = ClientPrefs.globalAntialiasing;
-					grpLocks.add(lock);
+					//grpLocks.add(lock);
 				}
 				num++;
 			}
@@ -132,11 +136,11 @@ class StoryMenuState extends MusicBeatState
 		{
 			var weekCharacterThing:MenuCharacter = new MenuCharacter((FlxG.width * 0.25) * (1 + char) - 150, charArray[char]);
 			weekCharacterThing.y += 70;
-			grpWeekCharacters.add(weekCharacterThing);
+			//grpWeekCharacters.add(weekCharacterThing);
 		}
 
 		difficultySelectors = new FlxGroup();
-		add(difficultySelectors);
+		//add(difficultySelectors);
 
 		leftArrow = new FlxSprite(grpWeekText.members[0].x + grpWeekText.members[0].width + 10, grpWeekText.members[0].y + 10);
 		leftArrow.frames = ui_tex;
@@ -144,7 +148,7 @@ class StoryMenuState extends MusicBeatState
 		leftArrow.animation.addByPrefix('press', "arrow push left");
 		leftArrow.animation.play('idle');
 		leftArrow.antialiasing = ClientPrefs.globalAntialiasing;
-		difficultySelectors.add(leftArrow);
+		//difficultySelectors.add(leftArrow);
 
 		CoolUtil.difficulties = CoolUtil.defaultDifficulties.copy();
 		if(lastDifficultyName == '')
@@ -163,21 +167,21 @@ class StoryMenuState extends MusicBeatState
 		rightArrow.animation.addByPrefix('press', "arrow push right", 24, false);
 		rightArrow.animation.play('idle');
 		rightArrow.antialiasing = ClientPrefs.globalAntialiasing;
-		difficultySelectors.add(rightArrow);
+		//difficultySelectors.add(rightArrow);
 
-		add(bgYellow);
-		add(bgSprite);
-		add(grpWeekCharacters);
+		//add(bgYellow);
+		//add(bgSprite);
+		//add(grpWeekCharacters);
 
 		var tracksSprite:FlxSprite = new FlxSprite(FlxG.width * 0.07, bgSprite.y + 425).loadGraphic(Paths.image('Menu_Tracks'));
 		tracksSprite.antialiasing = ClientPrefs.globalAntialiasing;
-		add(tracksSprite);
+		//add(tracksSprite);
 
 		txtTracklist = new FlxText(FlxG.width * 0.05, tracksSprite.y + 60, 0, "", 32);
 		txtTracklist.alignment = CENTER;
 		txtTracklist.font = rankText.font;
 		txtTracklist.color = 0xFFe55777;
-		add(txtTracklist);
+		//add(txtTracklist);
 		// add(rankText);
 		add(scoreText);
 		add(txtWeekTitle);
@@ -216,31 +220,31 @@ class StoryMenuState extends MusicBeatState
 			if (upP)
 			{
 				changeWeek(-1);
-				FlxG.sound.play(Paths.sound('scrollMenu'));
+				//FlxG.sound.play(Paths.sound('scrollMenu'));
 			}
 
 			if (downP)
 			{
 				changeWeek(1);
-				FlxG.sound.play(Paths.sound('scrollMenu'));
+				//FlxG.sound.play(Paths.sound('scrollMenu'));
 			}
 
 			if (controls.UI_RIGHT)
-				rightArrow.animation.play('press')
+				//rightArrow.animation.play('press')
 			else
-				rightArrow.animation.play('idle');
+				//rightArrow.animation.play('idle');
 
 			if (controls.UI_LEFT)
-				leftArrow.animation.play('press');
+				//leftArrow.animation.play('press');
 			else
-				leftArrow.animation.play('idle');
+				//leftArrow.animation.play('idle');
 
 			if (controls.UI_RIGHT_P)
-				changeDifficulty(1);
+				//changeDifficulty(1);
 			else if (controls.UI_LEFT_P)
-				changeDifficulty(-1);
+				//changeDifficulty(-1);
 			else if (upP || downP)
-				changeDifficulty();
+				//changeDifficulty();
 
 			if(FlxG.keys.justPressed.CONTROL #if android || _virtualpad.buttonX.justPressed #end)
 			{
