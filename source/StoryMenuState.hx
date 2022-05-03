@@ -160,7 +160,7 @@ class StoryMenuState extends MusicBeatState
 		
 		sprDifficulty = new FlxSprite(0, leftArrow.y);
 		sprDifficulty.antialiasing = ClientPrefs.globalAntialiasing;
-		difficultySelectors.add(sprDifficulty);
+		//difficultySelectors.add(sprDifficulty);
 
 		rightArrow = new FlxSprite(leftArrow.x + 376, leftArrow.y);
 		rightArrow.frames = ui_tex;
@@ -185,7 +185,7 @@ class StoryMenuState extends MusicBeatState
 		//add(txtTracklist);
 		// add(rankText);
 		add(scoreText);
-		add(txtWeekTitle);
+		//add(txtWeekTitle);
 
 		changeWeek();
 		changeDifficulty();
