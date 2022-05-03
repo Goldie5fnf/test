@@ -50,7 +50,8 @@ class DristGayState extends MusicBeatState
             bg.visible = false;
             accept.visible = true;
 	    new FlxTimer().start(5, function(dristTimer:FlxTimer)
-            PlayState.instance.callOnLuas('onGameOverConfirm', [true]));
+            FlxG.camera.fade(FlxColor.BLACK, 2, false, function()))
+            PlayState.instance.callOnLuas('onGameOverConfirm', [true]);
             }
          if(controls.BACK)
            {
