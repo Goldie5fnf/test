@@ -164,8 +164,6 @@ class StoryMenuState extends MusicBeatState
 		add(scoreText);
 		//add(txtWeekTitle);
 
-		changeWeek();
-
                 #if android
                 addVirtualPad(FULL, A_B_X_Y);
                 addPadCamera();
@@ -176,7 +174,6 @@ class StoryMenuState extends MusicBeatState
 
 	override function closeSubState() {
 		persistentUpdate = true;
-		changeWeek();
 		super.closeSubState();
 	}
 
@@ -270,35 +267,6 @@ class StoryMenuState extends MusicBeatState
 	var lerpScore:Int = 0;
 	var intendedScore:Int = 0;
 
-	function changeWeek(change:Int = 0):Void
-	{
-		curWeek += change;
-
-		if (curWeek >= loadedWeeks.length)
-			curWeek = 0;
-		if (curWeek < 0)
-			curWeek = loadedWeeks.length - 1;
-
-		var leWeek:WeekData = loadedWeeks[curWeek];
-		WeekData.setDirectoryFromWeek(leWeek);
-
-		var leName:String = leWeek.storyName;
-		txtWeekTitle.text = leName.toUpperCase();
-		txtWeekTitle.x = FlxG.width - (txtWeekTitle.width + 10);
-
-		var bullShit:Int = 0;
-
-		var unlocked:Bool = !weekIsLocked(leWeek.fileName);
-		for (item in grpWeekText.members)
-		{
-			item.targetY = bullShit - curWeek;
-			if (item.targetY == Std.int(0) && unlocked)
-				item.alpha = 1;
-			else
-				item.alpha = 0.6;
-			bullShit++;
-		}
-
 		bgSprite.visible = true;
 		var assetName:String = leWeek.weekBackground;
 		if(assetName == null || assetName.length < 1) {
@@ -311,7 +279,6 @@ class StoryMenuState extends MusicBeatState
 		CoolUtil.difficulties = CoolUtil.defaultDifficulties.copy();
 		var diffStr:String = WeekData.getCurrentWeek().difficulties;
 		if(diffStr != null) diffStr = diffStr.trim(); //Fuck you HTML5
-		difficultySelectors.visible = unlocked;
 
 		if(diffStr != null && diffStr.length > 0)
 		{
