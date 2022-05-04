@@ -269,22 +269,6 @@ class StoryMenuState extends MusicBeatState
            }
 		var assetName:String = leWeek.weekBackground;
 		var diffStr:String = WeekData.getCurrentWeek().difficulties;
-
-		if(CoolUtil.difficulties.contains(CoolUtil.defaultDifficulty))
-		{
-			curDifficulty = Math.round(Math.max(0, CoolUtil.defaultDifficulties.indexOf(CoolUtil.defaultDifficulty)));
-		}
-		else
-		{
-			curDifficulty = 0;
-		}
-
-		var newPos:Int = CoolUtil.difficulties.indexOf(lastDifficultyName);
-		//trace('Pos of ' + lastDifficultyName + ' is ' + newPos);
-		if(newPos > -1)
-		{
-			curDifficulty = newPos;
-		}
 		updateText();
 	}
 
