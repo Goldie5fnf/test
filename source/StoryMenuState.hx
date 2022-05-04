@@ -269,5 +269,4 @@ class StoryMenuState extends MusicBeatState
            }
 		var assetName:String = leWeek.weekBackground;
 		var diffStr:String = WeekData.getCurrentWeek().difficulties;
-	}
 }
