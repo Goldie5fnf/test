@@ -268,7 +268,6 @@ class StoryMenuState extends MusicBeatState
 	var intendedScore:Int = 0;
            }
 		var assetName:String = leWeek.weekBackground;
-		PlayState.storyWeek = curWeek;
 
 		CoolUtil.difficulties = CoolUtil.defaultDifficulties.copy();
 		var diffStr:String = WeekData.getCurrentWeek().difficulties;
