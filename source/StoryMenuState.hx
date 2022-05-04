@@ -267,7 +267,6 @@ class StoryMenuState extends MusicBeatState
 	var lerpScore:Int = 0;
 	var intendedScore:Int = 0;
            }
-	        bgSprite.visible = true;
 		var assetName:String = leWeek.weekBackground;
 		if(assetName == null || assetName.length < 1) {
 			bgSprite.visible = false;
