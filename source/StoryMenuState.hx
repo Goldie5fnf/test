@@ -171,16 +171,15 @@ class StoryMenuState extends MusicBeatState
 		// scoreText.setFormat('VCR OSD Mono', 32);
 		lerpScore = Math.floor(FlxMath.lerp(lerpScore, intendedScore, CoolUtil.boundTo(elapsed * 30, 0, 1)));
 		if(Math.abs(intendedScore - lerpScore) < 10) lerpScore = intendedScore;
-
+                var movedBack:Bool = false;
+	        var selectedWeek:Bool = false;
+	        var stopspamming:Bool = false;
 		scoreText.text = "WEEK SCORE:" + lerpScore;
 
 		// FlxG.watch.addQuick('font', scoreText.font);
 
 		if (!movedBack && !selectedWeek)
-		{       
-	                var movedBack:Bool = false;
-	                var selectedWeek:Bool = false;
-	                var stopspamming:Bool = false;
+		{     
 			var upP = controls.UI_UP_P;
 			var downP = controls.UI_DOWN_P;
 			if (controls.ACCEPT)
