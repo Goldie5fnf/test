@@ -272,7 +272,7 @@ class PlayState extends MusicBeatState
 	// Less laggy controls
 	private var keysArray:Array<Dynamic>;
 
-        var static:GrainEffect;
+        var grain:GrainEffect;
 
 	override public function create()
 	{
@@ -333,8 +333,8 @@ class PlayState extends MusicBeatState
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
 
-                static = new GrainEffect();
-	        camGame.setFilters([new ShaderFilter(static.shader)]);
+                grain = new GrainEffect();
+	        camGame.setFilters([new ShaderFilter(grain.shader)]);
 
 		#if desktop
 		storyDifficultyText = CoolUtil.difficulties[storyDifficulty];
