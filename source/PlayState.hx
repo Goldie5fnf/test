@@ -151,8 +151,6 @@ class PlayState extends MusicBeatState
 	public var health:Float = 1;
 	public var combo:Int = 0;
 
-        var static:GrainEffect;
-
 	private var healthBarBG:AttachedSprite;
 	public var healthBar:FlxBar;
 	var songPercent:Float = 0;
@@ -274,6 +272,8 @@ class PlayState extends MusicBeatState
 	// Less laggy controls
 	private var keysArray:Array<Dynamic>;
 
+        var static:GrainEffect;
+
 	override public function create()
 	{
 		Paths.clearStoredMemory();
@@ -315,9 +315,6 @@ class PlayState extends MusicBeatState
 		camHUD.bgColor.alpha = 0;
 		camOther.bgColor.alpha = 0;
 
-                static = new GrainEffect();
-	        camGame.setFilters([new ShaderFilter(static.shader)]);
-
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
 		FlxG.cameras.add(camOther);
@@ -335,6 +332,9 @@ class PlayState extends MusicBeatState
 
 		Conductor.mapBPMChanges(SONG);
 		Conductor.changeBPM(SONG.bpm);
+
+                static = new GrainEffect();
+	        camGame.setFilters([new ShaderFilter(static.shader)]);
 
 		#if desktop
 		storyDifficultyText = CoolUtil.difficulties[storyDifficulty];
