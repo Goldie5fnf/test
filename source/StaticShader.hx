@@ -5,7 +5,7 @@ class GrainEffect
 	public var shader:Grain;
 	   public var lumamount(default, set):Float = 0.0;
     public var grainsize(default,set):Float = 0.0;
-    public var lockAlpha(default,set):Float = 0.0;
+    public var lockAlpha(default,set):Bool = 0.0;
 	
 	public function new (){
 		shader = new Grain();
@@ -28,7 +28,7 @@ class GrainEffect
         grainsize = value;
         return value;
 	}
-	function set_lockAlpha(value:Float):Float {
+	function set_lockAlpha(value:Bool):Float {
 	shader.lockAlpha.value = [value];
         lockAlpha = value;
         return value;
