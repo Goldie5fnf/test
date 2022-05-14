@@ -58,6 +58,8 @@ import DialogueBoxPsych;
 #if MODS_ALLOWED
 import sys.FileSystem;
 #end
+import StaticShader;
+import openfl.filters.ShaderFilter;
 
 using StringTools;
 
@@ -148,6 +150,8 @@ class PlayState extends MusicBeatState
 	public var gfSpeed:Int = 1;
 	public var health:Float = 1;
 	public var combo:Int = 0;
+
+        var static:GrainEffect;
 
 	private var healthBarBG:AttachedSprite;
 	public var healthBar:FlxBar;
@@ -310,6 +314,9 @@ class PlayState extends MusicBeatState
 		camOther = new FlxCamera();
 		camHUD.bgColor.alpha = 0;
 		camOther.bgColor.alpha = 0;
+
+                static = new GrainEffect();
+	        camGame.setFilters([new ShaderFilter(static.shader)]);
 
 		FlxG.cameras.reset(camGame);
 		FlxG.cameras.add(camHUD);
